@@ -3,8 +3,8 @@ import { Sparkles, X, Heart } from 'lucide-react';
 import { useState } from 'react';
 
 const photos = [
-    { src: "/assets/Gallery/photo 1.jpg", message: "May all your small dreams (sapana) be fulfilled, and may you always stay as happy as you were in your childhood. ✨\n\nतिम्रा साना सपना पूरा होस्, र बाल्यकालमा जस्तै खुशी सधैं रहोस्। ✨" },
-    { src: "/assets/Gallery/photo 2.jpg", message: "Happy Birthday, Oseen Niroula! May God bless you with endless joy, good health, and success in every step of life. ✨🌸\n\nजन्मदिनको शुभकामना, ओसिन निरौला! भगवानले सधैं खुशी, राम्रो स्वास्थ्य र सफलताले भरिपूर्ण जीवन दिनुहोस्। ✨🌸" },
+    { src: "/assets/Gallery/photo 1.jpg", message: "May all your small dreams be fulfilled, and may you always stay as happy as you were in your childhood. ✨\n\nतिम्रा साना सपना पूरा होस्, र बाल्यकालमा जस्तै खुशी सधैं रहोस्। ✨" },
+    { src: "/assets/Gallery/photo 2.jpg", message: "Happy Birthday!!! May God bless you with endless joy, good health, and success in every step of life. ✨🌸\n\nजन्मदिनको शुभकामना !!!  भगवानले सधैं खुशी, राम्रो स्वास्थ्य र सफलताले भरिपूर्ण जीवन दिनुहोस्। ✨🌸" },
     { src: "/assets/Gallery/photo 3.jpg", message: "Every picture tells a story — may your journey ahead be filled with love, laughter, and countless beautiful memories. 🌸📸\n\nप्रत्येक तस्वीरले कथा बोल्छ — तिम्रो यात्रा सधैं प्रेम, हाँसो र अनगिन्ती सुन्दर सम्झनाले भरिपूर्ण रहोस्। 🌸📸" },
     { src: "/assets/Gallery/photo 4.jpg", message: "From today, let success lead your path. May every step bring growth, happiness, and fulfillment of your dreams. 🌸💫\n\nआजदेखि सफलता तिम्रो बाटो देखाओस्। प्रत्येक कदमले वृद्धि, खुशी र सपनाहरू पूरा गर्ने शक्ति ल्याओस्। 🌟✨" },
 ];
