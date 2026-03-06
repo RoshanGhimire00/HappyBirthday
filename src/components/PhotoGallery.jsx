@@ -26,7 +26,7 @@ const PhotoGallery = ({ onClose, onFinish }) => {
         if (clickedPhotos.size === 4) {
             setTimeout(() => {
                 if (onFinish) onFinish();
-            }, 6000);
+            }, 1000);
         }
     };
 
