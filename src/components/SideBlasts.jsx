@@ -106,15 +106,24 @@ const SideBlasts = () => {
         // Fire immediately on mount
         fireBomb();
 
-        // Occasional smaller bursts
+        // track how many blasts have been triggered
+        let blastCount = 1; // first shot above
+
+        // Occasional smaller bursts with a 5‑second gap
         const interval = setInterval(() => {
+            // on mobile, only allow two total blasts
+            if (isMobile && blastCount >= 2) {
+                clearInterval(interval);
+                return;
+            }
             fireBomb();
-        }, 3000);
+            blastCount++;
+        }, 5000);
+
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
         const animate = () => {
-            // Trail effect: instead of full clear, we use a slightly transparent field
-            // but actually for heavy particles, clearing is safer for performance.
-            // We'll use the history array for trails instead of "canvas ghosting"
+
             ctx.clearRect(0, 0, width, height);
 
             particles = particles.filter(p => p.life > 0);
