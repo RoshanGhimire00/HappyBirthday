@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(circle at center, #1a0b2e 0%, #0d021c 100%);
+  color: #fff;
+  overflow: hidden;
+  /* prevent scrolling when fireworks/balloons animate */
+}
+
+.fancy-text {
+  font-family: 'Dancing Script', cursive;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.1);
+}
+
+/* Beautiful gift box styles */
+.gift-container {
+  perspective: 1000px;
+}
+
+.gift-box {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  animation: float 3s ease-in-out infinite, rotateBox 10s linear infinite;
+}
+
+.gift-box:hover {
+  animation: float 3s ease-in-out infinite, rotateBox 10s linear infinite, popBox 0.5s ease-in-out alternate infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotateX(20deg) rotateY(45deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotateX(20deg) rotateY(45deg);
+  }
+}
+
+@keyframes rotateBox {
+  0% {
+    transform: translateY(0) rotateX(20deg) rotateY(0deg);
+  }
+
+  100% {
+    transform: translateY(0) rotateX(20deg) rotateY(360deg);
+  }
+}
+
+@keyframes popBox {
+  0% {
+    transform: scale(1) translateY(0) rotateX(20deg) rotateY(45deg);
+  }
+
+  20% {
+    transform: scale(1.1) translateY(-10px) rotateX(15deg) rotateY(40deg);
+  }
+
+  40% {
+    transform: scale(1.1) translateY(-10px) rotateX(25deg) rotateY(50deg);
+  }
+
+  60% {
+    transform: scale(1.1) translateY(-10px) rotateX(15deg) rotateY(40deg);
+  }
+
+  80% {
+    transform: scale(1.1) translateY(-10px) rotateX(25deg) rotateY(50deg);
+  }
+
+  100% {
+    transform: scale(1) translateY(0) rotateX(20deg) rotateY(45deg);
+  }
+}
+
+.box-face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.box-face::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.box-face::before {
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.box-front {
+  transform: rotateY(0deg) translateZ(75px);
+}
+
+.box-back {
+  transform: rotateY(180deg) translateZ(75px);
+}
+
+.box-right {
+  transform: rotateY(90deg) translateZ(75px);
+}
+
+.box-left {
+  transform: rotateY(-90deg) translateZ(75px);
+}
+
+.box-top {
+  transform: rotateX(90deg) translateZ(75px);
+}
+
+.box-bottom {
+  transform: rotateX(-90deg) translateZ(75px);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.box-top::before,
+.box-top::after,
+.box-bottom::before,
+.box-bottom::after {
+  display: none;
+}
+
+.ribbon-center {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #fff, #f0f0f0);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Gift opening animation classes */
+.gift-lid-open {
+  animation: openLid 1.5s forwards ease-in-out;
+}
+
+@keyframes openLid {
+  0% {
+    transform: rotateX(90deg) translateZ(75px);
+  }
+
+  100% {
+    transform: rotateX(160deg) translateZ(200px) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.balloon {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.2);
+  transform-origin: bottom center;
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid inherit;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.floating-gift {
+  position: absolute;
+  animation: floatRandomly 15s linear infinite;
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes floatRandomly {
+  0% {
+    transform: translateY(100vh) rotate(0deg) translateX(0);
+  }
+
+  25% {
+    transform: translateY(50vh) rotate(45deg) translateX(50px);
+  }
+
+  50% {
+    transform: translateY(0vh) rotate(90deg) translateX(-50px);
+  }
+
+  75% {
+    transform: translateY(-50vh) rotate(135deg) translateX(50px);
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(180deg) translateX(0);
+  }
+}
